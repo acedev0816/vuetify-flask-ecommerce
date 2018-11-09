@@ -23,3 +23,4 @@ class Config(object):
             'DIST_DIR not found: {}'.format(DIST_DIR))
 
 app.config.from_object('app.config.Config')
+app.config['SWAGGER_UI_JSONEDITOR'] = True  # turn on JSON editor in swaggerUI

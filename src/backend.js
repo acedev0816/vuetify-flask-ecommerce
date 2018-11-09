@@ -24,12 +24,22 @@ $axios.interceptors.response.use(function (response) {
 export default {
 
   fetchResource () {
-    return $axios.get(`resource/xxx`)
+    return $axios.get(`resource/q`)
       .then(response => response.data)
   },
 
   fetchSecureResource () {
-    return $axios.get(`secure-resource/zzz`)
+    return $axios.get(`secure-resource/xxx`)
+      .then(response => response.data)
+  },
+
+  fetchResourceTest () {
+    return $axios.get(`test`)
+      .then(response => response.data)
+  },
+
+  fetchBooks () {
+    return $axios.get(`books`)
       .then(response => response.data)
   }
 }

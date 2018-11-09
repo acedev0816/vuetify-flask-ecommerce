@@ -2,7 +2,8 @@
   <div id="app">
     <div id="nav">
       <router-link to="/">Home</router-link> |
-      <router-link to="/api">API Sample</router-link>
+      <router-link to="/api">API Sample</router-link> |
+      <!-- <router-link to="/random_number">Random Number Gen</router-link> -->
     </div>
     <div id="logos">
       <p>
@@ -11,6 +12,8 @@
         <img src="@/assets/flask-logo.png">
       </p>
     </div>
+
+    <!-- all routed views are auto inserted here -->
     <router-view/>
 
     <!-- FORK Me -->

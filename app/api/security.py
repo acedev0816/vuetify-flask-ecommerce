@@ -13,5 +13,5 @@ def require_auth(func):
         if request.headers.get('authorization'):
             return func(*args, **kwargs)
         else:
-            return abort(401)
+            return abort(code=401, message='Authorization Required.')
     return wrapper
