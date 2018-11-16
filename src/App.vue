@@ -1,26 +1,101 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/api">API Sample</router-link> |
-      <!-- <router-link to="/random_number">Random Number Gen</router-link> -->
-    </div>
-    <div id="logos">
-      <p>
-        <img src="@/assets/vue-logo.png">
-        <span id="plus">+</span>
-        <img src="@/assets/flask-logo.png">
-      </p>
-    </div>
+  <v-app id="app">
 
-    <!-- all routed views are auto inserted here -->
-    <router-view/>
+    <!-- sidebar -->
+    <v-navigation-drawer
+        v-model="sidebar"
+        dark color="indego"
+        fixed
+        app>
+      <v-list>
+        <v-list-tile
+          v-for="item in menuItems"
+          v-bind:key="item.title"
+          v-bind:to="item.path">
+          <v-list-tile-action>
+            <v-icon>{{ item.icon }}</v-icon>
+          </v-list-tile-action>
+          <v-list-tile-content>{{ item.title }}</v-list-tile-content>
+        </v-list-tile>
 
-    <!-- FORK Me -->
-    <a href="https://github.com/gtalarico/flask-vuejs-template"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_orange_ff7600.png" alt="Fork me on GitHub"></a>
+        <v-list-tile>
+          <v-list-tile-action>
+            <v-icon> whatshot </v-icon>
+          </v-list-tile-action>
+          <v-list-tile-content>sample v-list-tile element</v-list-tile-content>
+        </v-list-tile>
+        <v-list-tile>sample v-list-tile element</v-list-tile>
+      </v-list>
+    </v-navigation-drawer>
 
-  </div>
+    <!-- toolbar -->
+    <v-toolbar dark color="indigo" fixed app>
+
+      <v-toolbar-side-icon @click="sidebar = !sidebar">
+      </v-toolbar-side-icon>
+
+        <v-toolbar-title>
+          <router-link to="/" tag="span" style="cursor: pointer">
+            {{ appTitle }}
+          </router-link>
+        </v-toolbar-title>
+      <v-spacer></v-spacer>
+
+        <v-toolbar-items class="hidden-xs-only">
+          <v-btn
+            flat
+            v-for="item in menuItems"
+            :key="item.title"
+            :to="item.path">
+            <v-icon left dark>{{ item.icon }}</v-icon>
+            {{ item.title }}
+          </v-btn>
+        </v-toolbar-items>
+
+    </v-toolbar>
+
+    <!-- content -->
+    <v-content>
+      <v-container fluid >
+        <v-layout
+          justify-center
+          align-center
+        >
+          <v-flex text-xs-center>
+            <router-view></router-view>
+          </v-flex>
+        </v-layout>
+      </v-container>
+    </v-content>
+
+    <v-footer color="indigo" app>
+      <span class="white--text">&copy; 2018</span>
+    </v-footer>
+
+  </v-app>
 </template>
+
+<script>
+export default {
+  data () {
+    return {
+      // appTitle: 'Awesome App',
+      sidebar: false,
+      menuItems: [
+        { title: 'Home', path: '/home', icon: 'home' },
+        { title: 'Api', path: '/api', icon: 'face' }
+      ]
+    }
+  },
+
+  computed: {
+    appTitle () {
+      console.log(this.$store.state)
+      return this.$store.state.appTitle
+    }
+  }
+}
+</script>
 
 <style lang="scss">
 #app {
@@ -47,5 +122,4 @@
   vertical-align: top;
   line-height: 100px;
 }
-
 </style>

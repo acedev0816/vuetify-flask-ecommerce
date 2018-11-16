@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "axios": "^0.18.0",
+    "material-design-icons-iconfont": "^4.0.2",
     "swagger-ui": "^3.19.5",
     "vue": "^2.5.13",
     "vue-router": "^3.0.1",
@@ -24,7 +25,11 @@
     "lint-staged": "^6.0.0",
     "node-sass": "^4.7.2",
     "sass-loader": "^6.0.6",
-    "vue-template-compiler": "^2.5.13"
+    "stylus": "^0.54.5",
+    "stylus-loader": "^3.0.1",
+    "vue-cli-plugin-vuetify": "^0.4.6",
+    "vue-template-compiler": "^2.5.13",
+    "vuetify-loader": "^1.0.5"
   },
   "babel": {
     "presets": [

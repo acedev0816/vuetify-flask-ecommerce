@@ -1,21 +1,13 @@
 <template>
-  <div class="home">
-    <VueInfo msg="Welcome to the Vue.js + Vuetify + Flask + Vega App Example"/>
-  </div>
+  <VueInfo msg="Infomation on Vue.js and its ecosystem"/>
 </template>
 
 <script>
-// @ is an alias to /src
-import VueInfo from '@/components/VueInfo.vue'
+import VueInfo from '../components/VueInfo'
 
 export default {
-  name: 'home',
   components: {
     VueInfo
   }
 }
 </script>
-
-<style lang="scss">
-
-</style>
