@@ -2,9 +2,11 @@
   <v-container class="books">
     <v-layout>
       <v-flex>
-        <p>Click on the links below to fetch data from the Flask server</p>
-        <!-- <a href="" @click.prevent="fetchResource">Fetch</a><br/>
-      <a href="" @click.prevent="fetchSecureResource">Fetch Secure Resource</a><br> -->
+
+        <v-chip color="primary" text-color="white">
+          <v-avatar class="teal">C</v-avatar>
+          Books
+        </v-chip><br>
         <v-btn @click.native="setBooks">fetch books</v-btn>
         <v-btn @click.native="clearBooks">clear books</v-btn>
         <!-- <a href="" @click.prevent="setBooks">fetch books</a> -->
