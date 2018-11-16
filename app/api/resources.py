@@ -10,6 +10,10 @@ from flask_restplus import Resource, fields
 from .security import require_auth
 from . import api_rest
 
+import altair
+from vega_datasets import data
+cars = data.cars()
+
 
 class SecureResource(Resource):
     """ Calls require_auth decorator on all requests """
@@ -37,11 +41,6 @@ class SecureResourceOne(SecureResource):
         timestamp = datetime.utcnow().isoformat()
         return {'timestamp': timestamp}
 
-@api_rest.route('/test')
-class Test(Resource):
-    def get(self):
-        return {'name': 'adsfadfadfadf'}
-
 
 model_book = api_rest.model('Books', {
     'title' : fields.String('Title of the book.'),
@@ -68,4 +67,12 @@ class Books(Resource):
         books.append(new_book)
         return {'result' : 'book added'}, 201
 
+@api_rest.route('/vega_cars')
+class VegaCars(Resource):
 
+    def get(self):
+        chart = altair.Chart(cars).mark_point().encode(
+            x='Horsepower',
+            y='Miles_per_Gallon'
+        )
+        return chart.to_dict()
