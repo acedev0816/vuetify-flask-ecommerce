@@ -35,6 +35,7 @@ export default new Vuex.Store({
         .then(response => context.commit('SET_BOOKS', response.data))
         .catch(error => context.commit('SET_ERROR', error))
     },
+
     clearBooks: (context) => {
       context.commit('CLEAR_BOOKS')
     }
