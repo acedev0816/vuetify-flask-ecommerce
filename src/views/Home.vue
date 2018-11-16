@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import VueInfo from '../components/VueInfo'
+import VueInfo from '@/components/VueInfo'
 
 export default {
   components: {

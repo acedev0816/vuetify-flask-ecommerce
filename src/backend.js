@@ -41,5 +41,10 @@ export default {
   fetchBooks () {
     return $axios.get(`books`)
       .then(response => response.data)
+  },
+
+  fetchCars () {
+    return $axios.get(`vega_cars`)
+      .then(response => response)
   }
 }

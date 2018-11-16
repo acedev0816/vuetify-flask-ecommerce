@@ -17,14 +17,6 @@
           </v-list-tile-action>
           <v-list-tile-content>{{ item.title }}</v-list-tile-content>
         </v-list-tile>
-
-        <v-list-tile>
-          <v-list-tile-action>
-            <v-icon> whatshot </v-icon>
-          </v-list-tile-action>
-          <v-list-tile-content>sample v-list-tile element</v-list-tile-content>
-        </v-list-tile>
-        <v-list-tile>sample v-list-tile element</v-list-tile>
       </v-list>
     </v-navigation-drawer>
 
@@ -79,19 +71,12 @@
 export default {
   data () {
     return {
-      // appTitle: 'Awesome App',
+      appTitle: 'My App',
       sidebar: false,
       menuItems: [
         { title: 'Home', path: '/home', icon: 'home' },
         { title: 'Api', path: '/api', icon: 'face' }
       ]
-    }
-  },
-
-  computed: {
-    appTitle () {
-      console.log(this.$store.state)
-      return this.$store.state.appTitle
     }
   }
 }
@@ -119,6 +104,14 @@ export default {
   padding: 0 20px 0 20px;
   display: inline-block;
   font-size: 50px;
+  vertical-align: top;
+  line-height: 100px;
+}
+#logo {
+  padding: 0 20px 0 20px;
+  display: inline-block;
+  font-size: 60px;
+  color: purple;
   vertical-align: top;
   line-height: 100px;
 }
