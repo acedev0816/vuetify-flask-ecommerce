@@ -7,7 +7,7 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     cars: null,
-    books: null,
+    books: [],
     error: ''
   },
   mutations: { // must be synchronous
@@ -15,7 +15,7 @@ export default new Vuex.Store({
       state.books = books
     },
     CLEAR_BOOKS: (state) => {
-      state.books = null
+      state.books = []
     },
     SET_CARS: (state, cars) => {
       state.cars = cars

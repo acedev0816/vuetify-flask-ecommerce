@@ -44,14 +44,23 @@ class SecureResourceOne(SecureResource):
 
 model_book = api_rest.model('Books', {
     'title' : fields.String('Title of the book.'),
-    'id' : fields.Integer('id of the book.')
+    'author' : fields.String('Author of the book.')
 })
 
-books = []
-books.append({
-    'title' : 'The Beetle Horde',
-    'id' : 1
-})
+books = [
+    {'title': 'The Adventures of Huckleberry Finn', 'author': 'Mark Twain'},
+    {'title': 'Frankenstein', 'author': 'Mary Shelley'},
+    {'title': 'Pride and Prejudice', 'author': 'Jane Austen'},
+    {'title': 'The Little Prince', 'author': 'Antoine de Saint-Exupéry'},
+    {'title': 'The Color Purple', 'author': 'Alice Walker'},
+    {'title': 'Little Women', 'author': 'Louisa May Alcott'},
+    {'title': 'Great Expectations', 'author': 'Charles Dickens'},
+    {'title': 'The Scarlet Letter', 'author': 'Nathaniel Hawthorne'},
+    {'title': 'Gone with the Wind', 'author': 'Margaret Mitchell'},
+    {'title': 'The Picture of Dorian Gray', 'author': 'Oscar Wilde'},
+    {'title': 'The Metamorphosis', 'author': 'Franz Kafka'}
+]
+
 
 @api_rest.route('/books')
 class Books(Resource):
@@ -60,12 +69,12 @@ class Books(Resource):
     def get(self):
         return books
 
-    @api_rest.expect(model_book)
-    def post(self):
-        new_book = api_rest.payload
-        new_book['id'] = len(books) + 1
-        books.append(new_book)
-        return {'result' : 'book added'}, 201
+    # @api_rest.expect(model_book)
+    # def post(self):
+    #     new_book = api_rest.payload
+    #     new_book['id'] = len(books) + 1
+    #     books.append(new_book)
+    #     return {'result' : 'book added'}, 201
 
 @api_rest.route('/vega_cars')
 class VegaCars(Resource):

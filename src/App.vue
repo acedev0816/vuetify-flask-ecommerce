@@ -75,7 +75,7 @@ export default {
       sidebar: false,
       menuItems: [
         { title: 'Home', path: '/home', icon: 'home' },
-        { title: 'Api', path: '/api', icon: 'face' }
+        { title: 'Api', path: '/api', icon: 'apps' }
       ]
     }
   }
