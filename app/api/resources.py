@@ -73,6 +73,7 @@ class VegaCars(Resource):
     def get(self):
         chart = altair.Chart(cars).mark_point().encode(
             x='Horsepower',
-            y='Miles_per_Gallon'
-        )
+            y='Miles_per_Gallon',
+            color='Origin'
+        ).interactive()
         return chart.to_dict()
