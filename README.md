@@ -1,65 +1,38 @@
-# Flask-VueJs-Template 🌶️✌
+# Flask-Altair-VueJs-Vuetify Example
 
-[![Build Status](https://travis-ci.org/gtalarico/flask-vuejs-template.svg?branch=master)](https://travis-ci.org/gtalarico/flask-vuejs-template)
-[![codecov](https://codecov.io/gh/gtalarico/flask-vuejs-template/branch/master/graph/badge.svg)](https://codecov.io/gh/gtalarico/flask-vuejs-template)
+_An demonstration of data-visualization web app with basic dashboard UI_
 
-_Flask + Vue.js Web Application Template_
+![Flask Logo](/docs/flask-logo.png "Flask Logo")
+![Altair logo](docs/altair-logo.png "altair Logo")
+![Vue Logo](/docs/vue-logo.png "Vue Logo")
+![Vuetify Logo](/docs/vuetify-logo.png "Vuetify Logo")
 
-![Vue Logo](/docs/vue-logo.png "Vue Logo") ![Flask Logo](/docs/flask-logo.png "Flask Logo")
+## Intro
+This example is built upon Gui Talarico's [Flask-Vuejs-Template](https://github.com/gtalarico/flask-vuejs-template) with additional inspirations from these following online resources:
+* [xhochy/altair-vue-vega-example](https://github.com/xhochy/altair-vue-vega-example)
+* [oleg-agapov/flask-vue-spa](https://github.com/oleg-agapov/flask-vue-spa)
+* [oleg-agapov/basic-spa-vue-firebase](https://github.com/oleg-agapov/basic-spa-vue-firebase/tree/part-1)
+
 
 ## Features
-* Minimal Flask 1.0 App
-* [Flask-RestPlus](http://flask-restplus.readthedocs.io) API with class-based secure resource routing
-* Starter [PyTest](http://pytest.org) test suite
+* Flask backend with [Flask-RestPlus](http://flask-restplus.readthedocs.io) API
+* [Altair](https://altair-viz.github.io/) plotting and Vega spec json object serving from backend
+* [Vega](https://vega.github.io/vega/) and [Vega-Embed](https://github.com/vega/vega-embed) for plot rendering at frontend
 * [vue-cli 3](https://github.com/vuejs/vue-cli/blob/dev/docs/README.md) + yarn
-* [Vuex](https://vuex.vuejs.org/)
+* [Vuex](https://vuex.vuejs.org/) state management
 * [Vue Router](https://router.vuejs.org/)
+* [Vuetify material design](https://vuetifyjs.com/en/) for dashboard UI
 * [Axios](https://vuex.vuejs.org/) for backend communication
-* Sample Vue [Filters](https://vuejs.org/v2/guide/filters.html)
 * Heroku Configuration with one-click deployment + Gunicorn
 
 ## Demo
-[Live Demo](https://flask-vuejs-template.herokuapp.com/#/api)
+[Live Demo](https://flask-vega-vuejs-vuetify-exp.herokuapp.com/#/api)
 
-## Alternatives
+## Repo Structure and Usage
 
-If this setup is not what you are looking for, here are some similar projects:
+The details on the directory structure and usage can be found in the `README.md` file of Gui Talarico's [repo](https://github.com/gtalarico/flask-vuejs-template). For reader's convenience, here I will only copy and paste the [key files](#Key-Files) and some basic [installation](Installation) instructions below.
 
-* [oleg-agapov/flask-vue-spa](https://github.com/oleg-agapov/flask-vue-spa)
-* [testdrivenio/flask-vue-crud](https://github.com/testdrivenio/flask-vue-crud)
-
-#### Old Template
-
-This template was updated to use a flatter folder structure and use yarn instead of npm.
-You can now run `yarn serve` as well as other yarn commands from the template root directory.
-The old template will be kept in the [npm-template branch](https://github.com/gtalarico/flask-vuejs-template/tree/npm-template) but will not be maintained. 
-
-#### Django
-
-Prefer Django? Checkout the [gtalarico/django-vue-template](https://github.com/gtalarico/django-vue-template)
-
-## Template Structure
-
-The template uses Flask & Flask-RestPlus to create a minimal REST style API,
-and let's VueJs + vue-cli handle the front end and asset pipline.
-Data from the python server to the Vue application is passed by making Ajax requests.
-
-### Application Structure
-
-#### Rest Api
-
-The Api is served using a Flask blueprint at `/api/` using Flask RestPlus class-based
-resource routing.
-
-#### Client Application
-
-A Flask view is used to serve the `index.html` as an entry point into the Vue app at the endpoint `/`.
-
-The template uses vue-cli 3 and assumes Vue Cli & Webpack will manage front-end resources and assets, so it does overwrite template delimiter.
-
-The Vue instance is preconfigured with Filters, Vue-Router, Vuex; each of these can easilly removed if they are not desired.
-
-#### Important Files
+#### Key Files
 
 | Location             |  Content                                   |
 |----------------------|--------------------------------------------|
@@ -90,7 +63,7 @@ Before getting started, you should have the following installed and running:
 * Clone this repository:
 
 	```
-	$ git clone https://github.com/gtalarico/flask-vuejs-template.git
+	$ git clone git@github.com:xujiboy/flask-vega-vuejs-vuetify-example.git
 	```
 
 * Setup virtual environment, install dependencies, and activate it:
@@ -140,36 +113,6 @@ $ python run.py
 ```
 
 
-## Production Server
+## Production Server and Heroku Deployment
 
-This template is configured to work with Heroku + Gunicorn and it's pre-configured
-to have Heroku build the application before releasing it.
-
-#### JS Build Process
-
-Heroku's nodejs buidlpack will handle install for all the dependencies from the `packages.json` file.
-It will then trigger the `postinstall` command which calls `yarn build`.
-This will create the bundled `dist` folder which will be served by whitenoise.
-
-#### Python Build Process
-
-The python buildpack will detect the `Pipfile` and install all the python dependencies.
-
-#### Production Sever Setup
-
-Here are the commands we need to run to get things setup on the Heroku side:
-
-	```
-	$ heroku apps:create flask-vuejs-template-demo
-	$ heroku git:remote --app flask-vuejs-template-demo
-	$ heroku buildpacks:add --index 1 heroku/nodejs
-	$ heroku buildpacks:add --index 2 heroku/python
-	$ heroku config:set FLASK_ENV=production
-	$ heroku config:set FLASK_SECRET=SuperSecretKey
-
-	$ git push heroku
-	```
-
-### Heroku deployment - One Click Deploy
-
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/gtalarico/flask-vuejs-template)
+Please refer to the `README.md` file of Gui Talarico's [repo](https://github.com/gtalarico/flask-vuejs-template).
