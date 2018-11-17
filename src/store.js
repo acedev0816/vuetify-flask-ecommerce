@@ -20,6 +20,9 @@ export default new Vuex.Store({
     SET_CARS: (state, cars) => {
       state.cars = cars
     },
+    CLEAR_CARS: (state) => {
+      state.cars = null
+    },
     SET_ERROR: (state, error) => {
       state.error = error
     }
@@ -29,6 +32,9 @@ export default new Vuex.Store({
       $backend.fetchCars()
         .then(response => context.commit('SET_CARS', response.data))
         .catch(error => context.commit('SET_ERROR', error))
+    },
+    clearCars: (context) => {
+      context.commit('CLEAR_CARS')
     },
     setBooks: (context) => {
       $backend.fetchBooks()
