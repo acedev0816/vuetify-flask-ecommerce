@@ -26,7 +26,7 @@ This example is built upon Gui Talarico's [Flask-Vuejs-Template](https://github.
 * Heroku Configuration with one-click deployment + Gunicorn
 
 ## Demo
-[Live Demo](https://flask-vega-vuejs-vuetify-exp.herokuapp.com/#/api)
+[Live Demo](https://flask-altair-vuejs-vuetify-exp.herokuapp.com/#/api)
 
 ## Repo Structure and Usage
 
